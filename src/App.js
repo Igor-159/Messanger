@@ -20,9 +20,9 @@ class App extends React.Component {
     }
 
     render(){
-        if(!this.props.initialized){
+      /*  if(!this.props.initialized){
             return <Spinner/>
-        }
+        }*/
 
 
 

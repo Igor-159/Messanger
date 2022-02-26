@@ -2,14 +2,14 @@ import { follow,
          unfollow,  
          setCurrentPage,  
          toggleFollowingProgress,
-         getUsers} from "../../redux/user-reducer ";
+         requestUsers} from "../../redux/user-reducer ";
 import { connect } from "react-redux";
 import React from 'react';
 import Users from './Users';
 import   './user-styles.css';
 import Spinner from "../spinner/Spinner";
 import { compose } from "redux";
-import {getAllUsers, 
+import {getUsers, 
         totalUsersCount, 
         getPageSize, 
         getCurrentPage,
@@ -21,7 +21,7 @@ class UsersContainer extends React.Component {
     
     componentDidMount(){
 
-                this.props.getUsers(this.props.currentPage, this.props.pageSize);
+                this.props.requestUsers(this.props.currentPage, this.props.pageSize);
         //     this.props.toggleIsFetching(true);
         //     usersAPI.getUsers(this.props.currentPage, this.props.pageSize)
         //     .then(data => {
@@ -32,7 +32,7 @@ class UsersContainer extends React.Component {
         }
     
     onPageChanged = (pageNumber) =>{
-        this.props.getUsers(pageNumber, this.props.pageSize);
+        this.props.requestUsers(pageNumber, this.props.pageSize);
         
 }
     render(){ 
@@ -71,7 +71,7 @@ class UsersContainer extends React.Component {
 const mapStateToProps = (state) =>{
     
     return{
-        users: getAllUsers(state),
+        users: getUsers(state),
         pageSize: getPageSize(state),
         totalUsersCount: totalUsersCount(state),
         currentPage: getCurrentPage(state),
@@ -118,5 +118,5 @@ export default compose(
         unfollow,
         setCurrentPage,
         toggleFollowingProgress,
-        getUsers})
+        requestUsers})
 )(UsersContainer);
