@@ -1,7 +1,7 @@
 import './profileInfo.css';
 import Spinner from '../../spinner/Spinner';
 import userPhoto from '../../../assets/images/i.jpg';
-import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
 
@@ -17,7 +17,7 @@ const ProfileInfo = (props) =>{
             <div>
                <img src='https://avatars.mds.yandex.net/i?id=bd0479f8e5da5c9ac4e65b61cd1defd9-4566301-images-thumbs&n=13'/>
             </div>
-            <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
             <div className='profileInfoContainer'>
                 
             <div className=''>
