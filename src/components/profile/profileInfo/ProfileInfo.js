@@ -6,16 +6,23 @@ import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
 const ProfileInfo = (props) =>{
-    
+
     if(Object.keys(props.profile).length === 0){
         return <Spinner/>
+    }
+
+    const onMainPhotoSelected = (e) =>{
+        if(e.target.files.length){
+            props.savePhoto(e.target.files[0])
+        }
     }
    
     return(
         <div>
 
             <div>
-               <img src='https://avatars.mds.yandex.net/i?id=bd0479f8e5da5c9ac4e65b61cd1defd9-4566301-images-thumbs&n=13'/>
+               <img src={props.profile.photos.large || userPhoto}/>
+               {props.isOwner && <input type={'file'} onChange={onMainPhotoSelected}/>}
             </div>
             <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus}/>
             <div className='profileInfoContainer'>

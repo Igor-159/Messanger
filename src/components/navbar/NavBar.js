@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom";
 import './navBar.css';
 
-const NavBar = () =>{
+const NavBar = (props) =>{
+    
     return (
         <div className='nav'>
         
                 <ul>
-                    <li><NavLink end to='/profile'>Profile</NavLink></li>
+                    <li><NavLink end to={'/profile/' + props.authUserId || null } >Profile</NavLink></li>
                     <li><NavLink end to='/dialogs'>Message</NavLink></li>
                     <li><NavLink end to='/users'>Users</NavLink></li>
                     <li><NavLink end to='/news'>News</NavLink></li>

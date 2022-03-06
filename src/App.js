@@ -1,5 +1,5 @@
 import HeaderContainer from './components/header/HeaderContainer';
-import NavBar from './components/navbar/NavBar';
+import NavbarContainer from './components/navbar/NavbarContainer';
 import UsersContainer from './components/user/UsersContainer';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import {connect} from 'react-redux';//import DialogsContainer from './components/dialogs/DialogsConteiner';
@@ -28,7 +28,7 @@ class App extends React.Component {
         <Router>
             <div className='app-wrapper'>
                 <HeaderContainer/>
-                <NavBar/>
+                <NavbarContainer/>
                 <div className='app-wraper-content'>
                 <Suspense fallback={<Spinner/>}>
                     <Routes>
