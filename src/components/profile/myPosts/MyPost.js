@@ -8,7 +8,7 @@ const maxLength10 =  maxLengthCreator(10);
 
 const MyPost =(props) =>{
     console.log(props.addPost)
-    let postsElement = props.posts.map(post => (<Post message={post.message} key={post.id} likesCount={post.likesCount}/>))
+    let postsElement = props.posts.map(post => (<Post key={post.id} message={post.message} likesCount={post.likesCount}/>))
 
     let newPostBody = (newPost) =>{
         props.addPost(newPost.newPost)
